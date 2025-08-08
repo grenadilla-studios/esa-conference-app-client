@@ -1,0 +1,22 @@
+{
+  "name": "esa-2025",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6"
+  },
+  "packageManager": "yarn@4.0.1+sha512.eed77ea7382e7059c7493017f23fb281e0b478027dce10b818c8f03dadb9babc8d526808edee0ccb6d696018860a0ac1854d95287cdd225972992f28fc71539e"
+}
