@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import blem from "blem";
 
 import LinkedList from "#/components/LinkedList";
-import { Biv } from "#/components/Bemoan";
+import { div as Biv } from "#/components/Bemoan";
 import Logo from "#/components/EsaLogo";
 import { LINKS, FOOTER_LINKS } from "#/HARDCODED_GARBAGE";
 import Heading from "#/components/Heading";

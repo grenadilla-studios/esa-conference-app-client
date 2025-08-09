@@ -1,0 +1,204 @@
+@import "breakpoints";
+@import "colors";
+
+.ScavengerHunt {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min(5rem, 0.25fr) 0.25fr 2fr 1fr;
+  grid-template-areas: "header" "nav" "main" "footer";
+  width: 100%;
+  min-height: 100vh;
+  @media screen and (min-width: $mq-3) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min(8rem, 0.25fr) 2fr 1fr;
+    grid-template-areas: "header nav" "main main" "footer footer";
+  }
+
+  &__header,
+  &__nav {
+    outline: 1px solid purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  &__header {
+    grid-area: header;
+    @media screen and (min-width: $mq-3) {
+      align-items: flex-end;
+    }
+  }
+  &__nav {
+    grid-area: nav;
+    @media screen and (min-width: $mq-3) {
+      align-items: flex-start;
+    }
+  }
+
+  &__title-text {
+    margin: 0;
+  }
+  &__logo--header {
+    fill: white;
+    max-width: 20rem;
+    padding: 1rem 0;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    text-transform: uppercase;
+    padding: 0;
+  }
+  &__menu-item {
+    list-style: none;
+  }
+  &__main {
+    grid-area: main;
+    outline: 1px dashed yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    // padding: 1rem;
+  }
+  &__footer {
+    grid-area: footer;
+  }
+  &__banner {
+    background-color: $brick;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    font-size: 1.5rem;
+    border-bottom-right-radius: 3rem;
+    border-top-left-radius: 3rem;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    @media screen and (min-width: $mq-3) {
+      // letter-spacing: 1.175rem;
+      // font-size: 2rem;
+      padding: 1rem 1.5rem;
+      width: calc(100% - 3rem);
+    }
+  }
+  &__heading {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+  &__plants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__plant {
+    width: calc(100% - 1rem);
+    /*
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    */
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    display: grid;
+    grid-template-columns: 0.25fr 1.75fr;
+    grid-template-rows: 1.75fr 0.25fr;
+    grid-template-areas:
+      "pl-image pl-name"
+      "pl-details pl-details";
+    &:first-of-type {
+      border-top: transparent;
+    }
+    &:last-of-type {
+      border-bottom: transparent;
+    }
+  }
+  &__plant-label {
+    grid-area: pl-name;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+  &__thumbnail--plant {
+    grid-area: pl-image;
+    border-radius: 100%;
+    min-width: 4rem;
+    min-height: 4rem;
+    width: 12vw;
+    height: auto;
+    max-width: 6rem;
+    max-height: 6rem;
+    border: 0.35rem solid rgba(0, 0, 0, 0.3);
+    font-size: 0.6rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.5rem;
+  }
+  &__plant-details {
+    grid-area: pl-details;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 0.75rem;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  &__plant-alt {
+    &::after {
+      content: "/";
+      width: 1px;
+      height: 1rem;
+      margin: 0 0.5rem;
+      display: inline-block;
+    }
+    &:last-of-type {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &__plant-context {
+    grid-area: pl-meta;
+    outline: 1px solid red;
+  }
+  &__svg--leaves {
+    max-width: 2rem;
+    max-height: 2rem;
+    margin-right: -2rem;
+    margin-top: -2em;
+    // position: absolute;
+    //left: calc(100% - 4rem);
+  }
+  &__leaf--c {
+    fill: $brick;
+  }
+  &__leaf--a {
+    fill: $daffodil;
+  }
+  &__leaf--b {
+    fill: $gold;
+  }
+}
+img {
+  width: 100%;
+  height: auto;
+}
+

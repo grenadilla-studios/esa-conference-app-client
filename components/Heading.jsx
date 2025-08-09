@@ -1,10 +1,11 @@
 import blem from 'blem'
-import { Biv } from "#/components/Bemoan"
+import { bem as GLOBAL_BEM} from '#/utilities/style'
+import { div as Biv } from "#/components/Bemoan"
 import Leaves from '#/components/Leaves'
 
 const ALLOWED_HEADINGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
-export const Heading = ({ as: el = "h1", children,  bem = blem("ScavengerHunt")  }) => {
+export const Heading = ({ as: el = "h1", children,  bem = GLOBAL_BEM  }) => {
   const px = { className: bem("heading-text", [el]), children };
   if (!ALLOWED_HEADINGS.includes(el)) {
     return null;
