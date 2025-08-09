@@ -1,0 +1,28 @@
+.Debug {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  &__wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  &__column {
+    position: absolute;
+    width: 1px;
+    min-height: 100vh;
+    border-left: 1px dotted lime;
+  }
+  &__row {
+    position: absolute;
+    height: 1px;
+    min-width: 100vw;
+    border-top: 1px dotted lime;
+  }
+}

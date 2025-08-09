@@ -1,81 +1,55 @@
-"use client";
-import { useState, useEffect } from "react";
-import blem from "blem";
+"use client"
+import { useState, useEffect } from "react"
+import blem from "blem"
 
-import LinkedList from "#/components/LinkedList";
-import Logo from "#/components/EsaLogo";
-import { LINKS, FOOTER_LINKS } from "#/HARDCODED_GARBAGE";
-import Heading from "#/components/Heading";
+import LinkedList from "#/components/LinkedList"
+import Logo from "#/components/EsaLogo"
+import { LINKS, FOOTER_LINKS } from "#/HARDCODED_GARBAGE"
+import Heading from "#/components/Heading"
+import Burdened from "#/components/Burdened"
+import { blemish } from "#/components/Bemoan"
+import RefGrid from "#/components/RefGrid"
 
-import { bem as DEFAULT_BEM, blemish } from "#/utilities/style";
+import { bem as DEFAULT_BEM } from "#/utilities/style"
 
-const Page = ({bem = DEFAULT_BEM}) => {
-const Biv = blemish(bem)
-  return (
-    <Biv e="">
-      <Burdened>
-        {[
-          {title: "RAW DATA", load: $data},
-         (
-         <>
-<Biv e="header">
+import "#/components/Page.scss"
+
+const REF_COLUMNS = [
+  { id: "col-left", offset: "1rem", position: "left" },
+  { id: "col-right", offset: "1rem", position: "right" },
+  {id: "col-center", offset: "50%", position: "left", color: "cyan"}
+]
+const REF_ROWS = [
+  { id: "row-top", offset: "1rem", position: "top" },
+  { id: "row-bottom", offset: "1rem", position: "bottom" },
+  { id: "row-center", offset: "50%", position: "top", color: "cyan" },
+]
+
+const Page = ({ bem = DEFAULT_BEM, children: main = null, $data }) => {
+  const Biv = blemish(bem)
+  const Sub = (
+    <>
+      <Biv e="header">
         <Logo className={bem("logo", ["header"])} />
       </Biv>
       <nav className={bem("nav")}>
         <LinkedList links={LINKS} />
       </nav>
-      <Biv e="main">
-        <Heading as="h1" bem={bem}>
-          Scavenger Hunt
-        </Heading>
-        <Biv e="challenge">
-          <div className={bem("control-panel", ["search"])}>
-            <button className={bem("toggle", ["people"])}>People</button>
-            <button className={bem("toggle", ["plants"])}>Plants</button>
-          </div>
-
-          <Biv e="plants">
-            {($data || []).map((raw) => {
-              const {
-                id,
-                common_name: name,
-                default_image: image,
-                other_name: alts,
-              } = raw;
-              const { thumbnail = "" } = image ?? {};
-              return (
-                <Biv e="plant" m={name} key={id + name}>
-                  <img
-                    src={thumbnail}
-                    className={bem("thumbnail", "plant")}
-                    alt={name}
-                  />
-                  <strong className={bem("plant-label")}>{name}</strong>
-                  {alts.length > 0 && (
-                    <Biv e="plant-details">
-                      {alts.map((a) => (
-                        <em key={a} className={bem("plant-alt")}>
-                          {a}
-                        </em>
-                      ))}
-                    </Biv>
-                  )}
-                </Biv>
-              );
-            })}
-          </Biv>
-        </Biv>
-      </Biv>
+      <Biv e="main">{main}</Biv>
       <Biv e="footer">
         <Heading as="h6">Links</Heading>
         <LinkedList links={FOOTER_LINKS} ul="links" li="link-item" />
       </Biv>
-    </Biv>
     </>
-         ) 
-          ]}
-   </Burdened>
-  );
-};
+  )
+  return (
+    <>
+      <RefGrid columns={REF_COLUMNS} rows={REF_ROWS} />
+      <Biv e="">
+        <Burdened>{[{ title: "RAW DATA", load: $data }, Sub]}</Burdened>
+      </Biv>
+    </>
+  )
+}
 
-export default App;
+export default Page
