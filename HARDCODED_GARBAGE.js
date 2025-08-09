@@ -3,10 +3,10 @@ export const LINKS = [
   ["Leaderboard", "#"],
   ["Map", "#"],
   ["About", "#"],
-];
+]
 
 export const FOOTER_LINKS = [
   ["ESA Annual Meeting", "#"],
   ["About", "#"],
   ["Colophon", "#"],
-];
+]
