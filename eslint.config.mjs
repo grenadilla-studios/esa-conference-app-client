@@ -1,6 +1,7 @@
 import globals from "globals";
 import importables from "eslint-plugin-import";
 import prettier from "eslint-plugin-prettier";
+import prettierConf from './prettier.config.mjs'
 import pluginJs from "@eslint/js";
 //import pkg from "./package.json" with { type: "json" }
 
@@ -24,7 +25,7 @@ export default [
   {
     plugins: { prettier },
     rules: {
-      "prettier/prettier": [2, { semi: false }],
+      "prettier/prettier": [2, prettierConf],
     },
   },
   {
