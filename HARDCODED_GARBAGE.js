@@ -10,3 +10,7 @@ export const FOOTER_LINKS = [
   ["About", "#"],
   ["Colophon", "#"],
 ]
+
+export const FAKE_SUBMISSIONS = [
+  { id: 0, name: "Skibble", date: Date.now(), location: "Skibblio Patio"}
+]

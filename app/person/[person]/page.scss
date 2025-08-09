@@ -1,0 +1,13 @@
+.PersonPage {
+  &__person {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  &__submissions {
+  }
+  &__submission {
+    display: flex;
+    flex-direction: column;
+  }
+}
