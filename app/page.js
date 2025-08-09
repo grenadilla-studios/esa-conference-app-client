@@ -8,85 +8,28 @@ import Logo from "#/components/EsaLogo"
 import { LINKS, FOOTER_LINKS } from "#/HARDCODED_GARBAGE"
 import Heading from "#/components/Heading"
 import Page from "#/components/Page"
+import { useAPI } from '#/utilities/fetch'
 
 import { bem } from "#/utilities/style"
 
 const App = () => {
-  // to save some API calls, disable in real things
-  const [$saveToLocalStorage, $setSaveToLocalStorage] = useState(true)
-  const [$data, $setData] = useState([])
-  const [$loaded, $setLoaded] = useState(false)
-  useEffect(() => {
-    if ($saveToLocalStorage && $loaded && $data.length > 0) {
-      console.log("Saving data", $data)
-      localStorage.setItem("plant-data", JSON.stringify($data))
-    }
-  }, [$saveToLocalStorage, $loaded, $data])
-  useEffect(() => {
-    const run = async () => {
-      if (!$loaded) {
-        if ($saveToLocalStorage) {
-          const rawSeed = localStorage.getItem("plant-data")
-          const plantData = rawSeed ? JSON.parse(rawSeed) : []
-          if (plantData.length) {
-            console.log("LOADED DATA FROM STORAGE")
-            $setData(plantData)
-            $setLoaded(true)
-            return
-          }
-        }
-        const data = await load()
-        const json = await data.json()
-        console.log("JSON", json)
-        $setData(json.data)
-        $setLoaded(true)
-        console.log("DATA LOADED")
-      }
-    }
-    run()
-  }, [$loaded, $setData, $setLoaded, $saveToLocalStorage, $loaded])
+  const $page = useAPI('/api/homepage')
+  console.log("$PAGE", $page)
   return (
-    <Page $data={$data} bem={bem}>
+    <Page $data={$page.data}>
+      {$page?.data ? (
+      <>
       <Heading as="h1" bem={bem}>
-        Scavenger Hunt
+        {$page.data.title}
       </Heading>
-      <Biv e="challenge">
-        <div className={bem("control-panel", ["search"])}>
-          <button className={bem("toggle", ["people"])}>People</button>
-          <button className={bem("toggle", ["plants"])}>Plants</button>
-        </div>
-
-        <Biv e="plants">
-          {($data || []).map((raw) => {
-            const {
-              id,
-              common_name: name,
-              default_image: image,
-              other_name: alts,
-            } = raw
-            const { thumbnail = "" } = image ?? {}
-            return (
-              <Biv e="plant" m={name} key={id + name}>
-                <img
-                  src={thumbnail}
-                  className={bem("thumbnail", "plant")}
-                  alt={name}
-                />
-                <strong className={bem("plant-label")}>{name}</strong>
-                {alts.length > 0 && (
-                  <Biv e="plant-details">
-                    {alts.map((a) => (
-                      <em key={a} className={bem("plant-alt")}>
-                        {a}
-                      </em>
-                    ))}
-                  </Biv>
-                )}
-              </Biv>
-            )
-          })}
-        </Biv>
-      </Biv>
+      <h2 className={bem('heading', 'h2')}>
+        {$page.data.subtitle}
+      </h2>
+      <p className={bem('cta')}>
+        {$page.data.text}
+      </p>
+      </>
+      ) : null}
     </Page>
   )
 }
