@@ -1,0 +1,13 @@
+.Homepage {
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  &__image {
+    border-radius: 2rem;
+    max-width: 33%;
+  }
+}
