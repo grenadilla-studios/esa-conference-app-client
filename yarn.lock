@@ -1820,6 +1820,7 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.5.4"
     eslint-plugin-react: "npm:^7.37.5"
     globals: "npm:^16.3.0"
+    houseform: "npm:^1.13.0"
     next: "npm:^15.4.6"
     prettier: "npm:^3.6.2"
     ramda: "npm:^0.31.3"
@@ -1829,6 +1830,7 @@ __metadata:
     swr: "npm:^2.3.4"
     temporal-polyfill: "npm:^0.3.0"
     typescript: "npm:5.9.2"
+    zod: "npm:^4.0.17"
   languageName: unknown
   linkType: soft
 
@@ -2529,6 +2531,16 @@ __metadata:
   dependencies:
     function-bind: "npm:^1.1.2"
   checksum: 3769d434703b8ac66b209a4cca0737519925bbdb61dd887f93a16372b14694c63ff4e797686d87c90f08168e81082248b9b028bad60d4da9e0d1148766f56eb9
+  languageName: node
+  linkType: hard
+
+"houseform@npm:^1.13.0":
+  version: 1.13.0
+  resolution: "houseform@npm:1.13.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    zod: ">=3.9.0"
+  checksum: bf6490a6ca6d17a3b04ecad9fa80da0ac6a06e3944e08bc179c4edd5cfbd9390d8645e9f919a12e81366c0c11659e08b6cff4b4c442fc23eae8a22dc54412503
   languageName: node
   linkType: hard
 
@@ -4800,5 +4812,12 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: dceb44c28578b31641e13695d200d34ec4ab3966a5729814d5445b194933c096b7ced71494ce53a0e8820685d1d010df8b2422e5bf2cdea7e469d97ffbea306f
+  languageName: node
+  linkType: hard
+
+"zod@npm:^4.0.17":
+  version: 4.0.17
+  resolution: "zod@npm:4.0.17"
+  checksum: c56ef4cc02f8f52be8724c5a8b338266202d68477c7606bee9b7299818b75c9adc27f16f4b6704a372f3e7578bd016f389de19bfec766564b7c39d0d327c540a
   languageName: node
   linkType: hard

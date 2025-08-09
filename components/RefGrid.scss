@@ -1,5 +1,7 @@
 .Debug {
-  opacity: 0.2;
+  opacity: 0.4;
+  // cursor: none;
+  pointer-events: none;
   &__wrapper {
     position: absolute;
     width: 100vw;

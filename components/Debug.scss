@@ -1,5 +1,8 @@
 .Data {
   position: relative;
+  cursor: none;
+  pointer-events: none;
+
   &__details {
     position: fixed;
     right: 1rem;

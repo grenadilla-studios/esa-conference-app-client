@@ -1,0 +1,58 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    width:100%;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width:100%;
+    max-width: 42rem;
+  }
+  &__field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    // outline: 1px solid cyan;
+  }
+  &__field-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 0;
+    font-size: 1.25em;
+  }
+&__field-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    max-width: 32rem;
+  }
+  &__button {
+    &--submit {
+      border: 0.125rem solid white;
+      padding: 0.5rem 0.75rem 0.25rem;
+      align-self: flex-end;
+      vertical-align: baseline;
+      text-transform: uppercase;
+background: transparent;
+font-weight: 800;
+font-size: 1.25rem;
+font-family: "Josefin Sans";
+    }
+  }
+}
