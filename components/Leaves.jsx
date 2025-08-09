@@ -1,4 +1,4 @@
-import {bem as DEFAULT_BEM} from '#/utilities/style'
+import { bem as DEFAULT_BEM } from "#/utilities/style"
 
 export const Leaves = ({ className: clx = "svg", bem = DEFAULT_BEM }) => (
   <svg
@@ -20,6 +20,6 @@ export const Leaves = ({ className: clx = "svg", bem = DEFAULT_BEM }) => (
       d="M0,0L8.36,0C17.74,0 25.36,7.62 25.36,17L25.36,25.36L17,25.36C7.62,25.36 0,17.74 0,8.36L0,0Z"
     />
   </svg>
-);
+)
 
 export default Leaves

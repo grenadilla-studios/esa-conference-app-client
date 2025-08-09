@@ -17,7 +17,7 @@ import "#/components/Page.scss"
 const REF_COLUMNS = [
   { id: "col-left", offset: "1rem", position: "left" },
   { id: "col-right", offset: "1rem", position: "right" },
-  {id: "col-center", offset: "50%", position: "left", color: "cyan"}
+  { id: "col-center", offset: "50%", position: "left", color: "cyan" },
 ]
 const REF_ROWS = [
   { id: "row-top", offset: "1rem", position: "top" },
