@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import blem from "blem"
 
 import LinkedList from "#/components/LinkedList"
@@ -11,28 +11,30 @@ import Page from "#/components/Page"
 
 import { bem as DEFAULT_BEM } from "#/utilities/style"
 
-const PersonPage = ({params}) => {
+const PersonPage = ({ params, bem = DEFAULT_BEM }) => {
   const Biv = blemish(bem)
-const {person}= await params
+  const { person } = use(params)
   const [$person, $setPerson] = useState(null)
   useEffect(() => {
     if (!$person && person) {
       // fetch()
+      $setPerson(person)
     }
   }, [person, $person, $setPerson])
   return (
     <Page bem={DEFAULT_BEM}>
-{$person ? (
-<>
-  <Heading as="h1" bem={bem}>
-    {$person}
-  </Heading>
-  <Biv e="person">
-  </Biv>
-</>
-) : <Biv e='missing'>No user by that name</Biv>}
+      {$person ? (
+        <>
+          <Heading as="h1" bem={bem}>
+            {$person}
+          </Heading>
+          <Biv e="person"></Biv>
+        </>
+      ) : (
+        <Biv e="missing">No user by that name</Biv>
+      )}
     </Page>
   )
 }
 
-export default App
+export default PersonPage

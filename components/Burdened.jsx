@@ -3,7 +3,7 @@ import "#/components/Debug.scss"
 
 const bem = blem("Data")
 
-export const Burden = ({ title, className: clx, load }) => (
+export const Burden = ({ title, className: clx, load = {} }) => (
   <details className={bem("details")}>
     <summary className={bem("summary")}>{title}</summary>
     <pre className={bem("body")}>{JSON.stringify(load, null, 2)}</pre>
