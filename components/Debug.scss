@@ -1,0 +1,15 @@
+.Data {
+  position: relative;
+  &__details {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  &__summary {
+    background-color: transparent;
+    color: white;
+    border: 3px solid white;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+  }
+}

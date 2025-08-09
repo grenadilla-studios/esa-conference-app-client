@@ -4,19 +4,18 @@
 .ScavengerHunt {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: min(5rem, 0.25fr) 0.25fr 2fr 1fr;
+  grid-template-rows: 0.125fr 0.125fr 2fr 1fr;
   grid-template-areas: "header" "nav" "main" "footer";
   width: 100%;
   min-height: 100vh;
   @media screen and (min-width: $mq-3) {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: min(8rem, 0.25fr) 2fr 1fr;
+    grid-template-rows: 0.125fr 2fr 1fr;
     grid-template-areas: "header nav" "main main" "footer footer";
   }
 
   &__header,
   &__nav {
-    outline: 1px solid purple;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,7 +56,6 @@
   }
   &__main {
     grid-area: main;
-    outline: 1px dashed yellow;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -177,7 +175,6 @@
   }
   &__plant-context {
     grid-area: pl-meta;
-    outline: 1px solid red;
   }
   &__svg--leaves {
     max-width: 2rem;
