@@ -1,0 +1,13 @@
+import blem from "blem";
+import { bem as GLOBAL_BEM } from "#/utilities/style";
+
+export const Biv = ({ b = "", e = "", m = "", children, bem = blem(b) }) => (
+  <div className={bem(e, m)}>{children}</div>
+);
+
+export const blemish = (bem) => (rest) => <Biv bem={bem} {...rest} />;
+
+export const hex = (b) => blemish(blem(b));
+
+export const div = hex(GLOBAL_BEM);
+export default Biv;

@@ -1004,6 +1004,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"blem@npm:^0.0.9":
+  version: 0.0.9
+  resolution: "blem@npm:0.0.9"
+  dependencies:
+    fast-memoize: "npm:^2.5.1"
+    ramda: "npm:^0.26.1"
+  checksum: 0b6c2f2edcc6c40136a9093ac10880fdc5363481175714d1fe4f21e107deab331feca85b8bb3688161de61c56c4b585066236072bad21815b1af4f2fe9f6f822
+  languageName: node
+  linkType: hard
+
 "brace-expansion@npm:^1.1.7":
   version: 1.1.12
   resolution: "brace-expansion@npm:1.1.12"
@@ -1419,9 +1429,11 @@ __metadata:
   resolution: "esa-2025@workspace:."
   dependencies:
     "@eslint/eslintrc": "npm:^3"
+    blem: "npm:^0.0.9"
     eslint: "npm:^9"
     eslint-config-next: "npm:15.4.6"
     next: "npm:^15.4.6"
+    ramda: "npm:^0.31.3"
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
   languageName: unknown
@@ -1757,6 +1769,13 @@ __metadata:
   version: 2.0.6
   resolution: "fast-levenshtein@npm:2.0.6"
   checksum: 111972b37338bcb88f7d9e2c5907862c280ebf4234433b95bc611e518d192ccb2d38119c4ac86e26b668d75f7f3894f4ff5c4982899afced7ca78633b08287c4
+  languageName: node
+  linkType: hard
+
+"fast-memoize@npm:^2.5.1":
+  version: 2.5.2
+  resolution: "fast-memoize@npm:2.5.2"
+  checksum: 6f658f182f6eaf25a8ecdaf49affee4cac20df4e61e7ef3f04145fb86e887e7a0bd9975740ce88a9015da99459d7386eaf1342ac15be820f72f4be1ecf934d95
   languageName: node
   linkType: hard
 
@@ -2822,6 +2841,20 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: 900a93d3cdae3acd7d16f642c29a642aea32c2026446151f0778c62ac089d4b8e6c986811076e1ae180a694cedf077d453a11b58ff0a865629a4f82ab558e102
+  languageName: node
+  linkType: hard
+
+"ramda@npm:^0.26.1":
+  version: 0.26.1
+  resolution: "ramda@npm:0.26.1"
+  checksum: af591bdb593a7bd4c715af306f9a1c591ed0eccabc9bb5166dd17e68b182e6ff313b35c057f9dc300715d060c3ed2f56e424a42499fe2b27b40446fb447838ba
+  languageName: node
+  linkType: hard
+
+"ramda@npm:^0.31.3":
+  version: 0.31.3
+  resolution: "ramda@npm:0.31.3"
+  checksum: a4328521e990df2a8fed7b73b2ca1d6bd611e3af0e512dd23142b5f4e5124778d75573cad7742479007dacb8b0204c386b21a0542e0a35aee5097bb27f48bff1
   languageName: node
   linkType: hard
 
