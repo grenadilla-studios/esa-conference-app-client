@@ -25,7 +25,7 @@ const REF_ROWS = [
   { id: "row-center", offset: "50%", position: "top", color: "cyan" },
 ]
 
-const Page = ({ bem = DEFAULT_BEM, children: main = null, $data }) => {
+const Page = ({ bem = DEFAULT_BEM, children: main = null, $data = [] }) => {
   const Biv = blemish(bem)
   const Sub = (
     <>
