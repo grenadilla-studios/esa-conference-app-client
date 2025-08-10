@@ -27,8 +27,7 @@ const Geolocation = ({ value, setValue }) => {
     }
   }, [$geo, setValue, $setInit, $init])
   return !$geo.loaded ? (
-    <button onClick={$geo.check
-    }>Geolocate me!</button>
+    <button onClick={$geo.check}>Geolocate me!</button>
   ) : (
     <pre>
       <code>{JSON.stringify($geo.position, null, 2)}</code>
@@ -75,7 +74,7 @@ const Field = ({
   </HouseField>
 )
 
-export const Form = ({ id, onSubmit, fields = [] }) => {
+export const Form = ({ id, onSubmit, submitText = "Submit", fields = [] }) => {
   const formId = id + "-form"
   const submitId = id + "-submit"
   return (
@@ -100,7 +99,7 @@ export const Form = ({ id, onSubmit, fields = [] }) => {
                 disabled={!isValid}
                 type="submit"
               >
-                Submit
+                {submitText}
               </button>
             </Biv>
           </form>

@@ -1,5 +1,6 @@
 "use client"
 import { propOr, __ as $ } from "ramda"
+import Link from 'next/link'
 import { useState, useEffect, use } from "react"
 import blem from "blem"
 
@@ -44,6 +45,10 @@ const Person = ({ $person }) => (
     <Heading as="h1" bem={bem}>
       {$person.name}
     </Heading>
+    {$person && (
+    <Link href={`/person/${$person.name}/edit`} className={bem('button', 'edit-profile')}>
+      Edit Profile
+    </Link>)}
     <Biv e="person">
       <ul className={bem("submissions")}>
         {$person.submissions

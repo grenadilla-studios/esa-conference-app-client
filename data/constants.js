@@ -3,11 +3,10 @@ export const LINKS = [
   ["Submit", "/submit"],
   ["Leaderboard", "/leaderboard"],
   ["Map", "/map"],
-  ["About", "/about"],
 ]
 
 export const FOOTER_LINKS = [
-  ["ESA Annual Meeting", "#"],
-  ["About", "#"],
-  ["Colophon", "#"],
+  ["ESA Annual Meeting", "https://esa.org/baltimore2025/"],
+  ["About", "/"],
+  ["Colophon", "/colophon"],
 ]

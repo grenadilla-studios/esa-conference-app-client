@@ -38,7 +38,7 @@ const submissionHandler = (id) => async (outcome, formRef) => {
 
   const formObj = objectifyForm(formData)
   console.log("FORM OBJ", formObj)
-  const { image, geo } = {...outcome, ...formObj}
+  const { image, geo } = { ...outcome, ...formObj }
   console.log("GEO!", geo)
   const cleaned = {
     image,
@@ -52,7 +52,7 @@ const submissionHandler = (id) => async (outcome, formRef) => {
   const response = await fetch(api("/api/observation"), {
     method: "POST",
 
-    body: cleaned
+    body: cleaned,
   })
   const json = response.json()
   console.log("RESPONSE!", response, json)

@@ -30,7 +30,11 @@ const Page = ({ bem = DEFAULT_BEM, children: main = null, $data = [] }) => {
   const Sub = (
     <>
       <Biv e="header">
+        <a
+className={bem("logo-link")}
+          href="https://esa.org/baltimore2025/">
         <Logo className={bem("logo", ["header"])} />
+        </a>
       </Biv>
       <nav className={bem("nav")}>
         <LinkedList links={LINKS} />
