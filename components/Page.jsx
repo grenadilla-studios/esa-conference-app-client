@@ -4,7 +4,7 @@ import blem from "blem"
 
 import LinkedList from "#/components/LinkedList"
 import Logo from "#/components/EsaLogo"
-import { LINKS, FOOTER_LINKS } from "#/HARDCODED_GARBAGE"
+import { LINKS, FOOTER_LINKS } from "#/data/constants"
 import Heading from "#/components/Heading"
 import Burdened from "#/components/Burdened"
 import { blemish } from "#/components/Bemoan"
