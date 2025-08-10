@@ -1,2 +1,1 @@
-export const BEM_BASE = "ScavengerHunt";
-
+export const BEM_BASE = "ScavengerHunt"

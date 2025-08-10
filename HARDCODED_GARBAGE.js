@@ -12,5 +12,5 @@ export const FOOTER_LINKS = [
 ]
 
 export const FAKE_SUBMISSIONS = [
-  { id: 0, name: "Skibble", date: Date.now(), location: "Skibblio Patio"}
+  { id: 0, name: "Skibble", date: Date.now(), location: "Skibblio Patio" },
 ]

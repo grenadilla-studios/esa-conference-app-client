@@ -1,8 +1,8 @@
-import globals from "globals";
-import importables from "eslint-plugin-import";
-import prettier from "eslint-plugin-prettier";
-import prettierConf from './prettier.config.mjs'
-import pluginJs from "@eslint/js";
+import globals from "globals"
+import importables from "eslint-plugin-import"
+import prettier from "eslint-plugin-prettier"
+import prettierConf from "./prettier.config.mjs"
+import pluginJs from "@eslint/js"
 //import pkg from "./package.json" with { type: "json" }
 
 export default [
@@ -60,4 +60,4 @@ export default [
       "no-shadow": [2, { builtinGlobals: false, hoist: "all" }],
     },
   },
-];
+]

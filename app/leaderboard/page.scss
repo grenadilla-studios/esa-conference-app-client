@@ -6,20 +6,19 @@
   width: 100%;
   outline: 1px dotted cyan;
   &__listing {
-width: 100%;
-
+    width: 100%;
   }
   &__list-item {
     padding: 0 0 0 2rem;
     vertical-align: center;
   }
   &__entry {
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-width: calc(100% - 2rem);
-outline: 1px dotted yellow;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 2rem);
+    outline: 1px dotted yellow;
   }
   &__thumbnail {
     max-width: 3rem;
