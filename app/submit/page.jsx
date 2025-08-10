@@ -34,20 +34,25 @@ const submissionHandler = (id) => async (outcome, formRef) => {
   const form = document.getElementById(formId)
   const sub = document.getElementById(submitId)
   const formData = new FormData(form, sub)
-  const { image, geo } = objectifyForm(formData)
-  console.log("DORM DATA", formData, "<>", formObj)
+  console.log("FORM DATA", formData)
+
+  const formObj = objectifyForm(formData)
+  console.log("FORM OBJ", formObj)
+  const { image, geo } = {...outcome, ...formObj}
+  console.log("GEO!", geo)
   const cleaned = {
     image,
-    latitude: geo?.coords?.latitude ?? -0,
-    longitude: geo?.coords?.longitude,
+    lat: geo?.coords?.latitude ?? -0,
+    long: geo?.coords?.longitude ?? -0,
     // cheated values for now
     specimenId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     userId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   }
+  console.log("CLEANED", cleaned)
   const response = await fetch(api("/api/observation"), {
     method: "POST",
 
-    body: formObj,
+    body: cleaned
   })
   const json = response.json()
   console.log("RESPONSE!", response, json)

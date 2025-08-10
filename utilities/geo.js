@@ -16,7 +16,7 @@ export const useLocation = () => {
       }
       $setInitialized(true)
     }
-  }, [$setCoords, $initialized, $setAllowed, $setInitialized])
+  }, [$setCoords, $initialized, $setAllowed, $setInitialized, $coords])
 
   return { position: $coords, allowed: $allowed, loaded: $initialized, check }
 }

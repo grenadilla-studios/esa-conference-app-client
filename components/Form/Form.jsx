@@ -15,16 +15,20 @@ const defaultOnSubmit = function huh(outcome, formRef) {
 const bem = blem("Form")
 const Biv = blemish(bem)
 
-const Geolocation = ({ setValue }) => {
+const Geolocation = ({ value, setValue }) => {
   const $geo = useLocation()
-  console.log("$GEO", $geo)
+  const [$init, $setInit] = useState(false)
   useEffect(() => {
-    if ($geo.loaded) {
-      setValue($geo.position)
+    if ($geo.loaded && $geo.position && !$init) {
+      const raw = JSON.parse(JSON.stringify($geo.position))
+      console.log("HUHUHUHUH", raw)
+      setValue(raw)
+      $setInit(true)
     }
-  }, [$geo])
+  }, [$geo, setValue, $setInit, $init])
   return !$geo.loaded ? (
-    <button onClick={$geo.check}>Geolocate me!</button>
+    <button onClick={$geo.check
+    }>Geolocate me!</button>
   ) : (
     <pre>
       <code>{JSON.stringify($geo.position, null, 2)}</code>
@@ -55,7 +59,7 @@ const Field = ({
           <label className={bem("field-label")}>
             <span className={bem("field-label-text")}>{label}</span>
             {kind === "geolocation" ? (
-              <Geolocation setValue={setValue} />
+              <Geolocation {...inputProps} setValue={setValue} />
             ) : (
               <input {...inputProps} />
             )}
