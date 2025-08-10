@@ -4,61 +4,106 @@ import { z } from "zod"
 import blem from "blem"
 
 import { blemish } from "#/components/Bemoan"
+import { api } from "#/utilities/fetch"
+import { useLocation } from "#/utilities/geo"
 import "#/components/Form/style.scss"
 
-const defaultOnSubmit = (values) => alert(JSON.stringify(values))
+const defaultOnSubmit = function huh(outcome, formRef) {
+  console.log("OUTCOME", outcome)
+}
 
 const bem = blem("Form")
 const Biv = blemish(bem)
 
-const Upload = ({kind}) => (
-<button className={bem('field-button', kind)}>Upload a picture</button>
-)
+const Geolocation = ({ setValue }) => {
+  const $geo = useLocation()
+  console.log("$GEO", $geo)
+  useEffect(() => {
+    if ($geo.loaded) {
+      setValue($geo.position)
+    }
+  }, [$geo])
+  return !$geo.loaded ? (
+    <button onClick={$geo.check}>Geolocate me!</button>
+  ) : (
+    <pre>
+      <code>{JSON.stringify($geo.position, null, 2)}</code>
+    </pre>
+  )
+}
 
-const Field = ({ kind = "text", name, label, placeholder, onChangeValidate }) =>  (
+const Field = ({
+  kind = "text",
+  name,
+  label,
+  placeholder,
+  onChangeValidate,
+}) => (
   <HouseField name={name} onChangeValidate={onChangeValidate}>
-    {({ value, setValue, onBlur, errors }) => (
-      <Biv e="field" m={kind}>
-        <label className={bem("field-label")}>
-          <span className={bem("field-label-text")}>{label}</span>
-          {kind === "text" ?
-          <input
-            className={bem("field-input", kind)}
-            value={value}
-            onBlur={onBlur}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder={placeholder}
-          /> : kind === "upload" ? <Upload kind={kind}/> : null}
-        </label>
-        {errors.map((e) => (
-          <Biv e="error" key={e}>
-            {e}
-          </Biv>
-        ))}
-      </Biv>
-    )}
+    {({ value, setValue, onBlur, errors }) => {
+      const inputProps = {
+        name,
+        className: bem("field-input", kind),
+        type: kind,
+        value,
+        onBlur,
+        onChange: (e) => setValue(e.target.value),
+        placeholder,
+      }
+      return (
+        <Biv e="field" m={kind}>
+          <label className={bem("field-label")}>
+            <span className={bem("field-label-text")}>{label}</span>
+            {kind === "geolocation" ? (
+              <Geolocation setValue={setValue} />
+            ) : (
+              <input {...inputProps} />
+            )}
+          </label>
+          {errors.map((e) => (
+            <Biv e="error" key={e}>
+              {e}
+            </Biv>
+          ))}
+        </Biv>
+      )
+    }}
   </HouseField>
 )
 
-export const Form = ({ onSubmit = defaultOnSubmit, fields = [] }) => (
-  <Biv e="">
-    <HouseForm onSubmit={onSubmit}>
-      {({ isValid, submit }) => (
-        <Biv e="wrapper">
-          {fields.map((f) => (
-            <Field key={f.name} {...f} />
-          ))}
-          <button
-            className={bem("button", "submit")}
-            disabled={!isValid}
-            type="submit"
+export const Form = ({ id, onSubmit, fields = [] }) => {
+  const formId = id + "-form"
+  const submitId = id + "-submit"
+  return (
+    <Biv e="" id={id}>
+      <HouseForm onSubmit={onSubmit}>
+        {({ isValid, submit }) => (
+          <form
+            className={bem("form")}
+            id={formId}
+            onSubmit={(e) => {
+              e.preventDefault()
+              submit()
+            }}
           >
-            Submit
-          </button>
-        </Biv>
-      )}
-    </HouseForm>
-  </Biv>
-)
+            <Biv e="wrapper">
+              {fields.map((f) => (
+                <Field key={f.name} {...f} />
+              ))}
+              <button
+                id={submitId}
+                className={bem("button", "submit")}
+                disabled={!isValid}
+                type="submit"
+              >
+                Submit
+              </button>
+            </Biv>
+          </form>
+        )}
+      </HouseForm>
+    </Biv>
+  )
+}
 
 export default Form
