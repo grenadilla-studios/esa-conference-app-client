@@ -17,13 +17,14 @@ import "#/app/submit/page.scss"
 
 const SUBMIT_FIELDS = [
   { name: "location", label: "Location" },
-  { name: "image", label: "Image" },
+  { name: "image", label: "Image", kind:"upload" },
 ]
 
 const SubmitPage = () => {
   const $page = useAPI("/api/homepage")
   return (
     <Page $data={$page.data}>
+      <Heading as="h1">Submit an image</Heading>
       {$page?.data ? (
         <>
           <Form fields={SUBMIT_FIELDS} />

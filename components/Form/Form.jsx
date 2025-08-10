@@ -11,19 +11,24 @@ const defaultOnSubmit = (values) => alert(JSON.stringify(values))
 const bem = blem("Form")
 const Biv = blemish(bem)
 
-const Field = ({ name, label, placeholder, onChangeValidate }) => (
+const Upload = ({kind}) => (
+<button className={bem('field-button', kind)}>Upload a picture</button>
+)
+
+const Field = ({ kind = "text", name, label, placeholder, onChangeValidate }) =>  (
   <HouseField name={name} onChangeValidate={onChangeValidate}>
     {({ value, setValue, onBlur, errors }) => (
-      <Biv e="field">
+      <Biv e="field" m={kind}>
         <label className={bem("field-label")}>
           <span className={bem("field-label-text")}>{label}</span>
+          {kind === "text" ?
           <input
-            className={bem("field-input")}
+            className={bem("field-input", kind)}
             value={value}
             onBlur={onBlur}
             onChange={(e) => setValue(e.target.value)}
             placeholder={placeholder}
-          />
+          /> : kind === "upload" ? <Upload kind={kind}/> : null}
         </label>
         {errors.map((e) => (
           <Biv e="error" key={e}>
