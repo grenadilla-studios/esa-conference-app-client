@@ -30,7 +30,7 @@ const PERSON_FIELDS = [
   { name: "firstName", label: "First Name" },
   { name: "lastName", label: "Last Name" },
   { name: "displayName", label: "Username" },
-  { name: "profileImage", label: "Profile Image", kind: "file" },
+  { name: "profileImg", label: "Profile Image", kind: "file" },
 ]
 
 const profileEditHandler = (id) => async (outcome, formRef) => {
